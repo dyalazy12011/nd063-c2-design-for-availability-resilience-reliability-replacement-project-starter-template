@@ -1,0 +1,89 @@
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-10-2-10-37 ~]$ pgsql
+-bash: pgsql: command not found
+[ec2-user@ip-10-2-10-37 ~]$ mysql
+-bash: mysql: command not found
+[ec2-user@ip-10-2-10-37 ~]$ sudo apt update
+sudo: apt: command not found
+[ec2-user@ip-10-2-10-37 ~]$ yum apt update
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+No such command: apt. Please use /usr/bin/yum --help
+[ec2-user@ip-10-2-10-37 ~]$ yum install mysql
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+You need to be root to perform this command.
+[ec2-user@ip-10-2-10-37 ~]$ sudo yum apt update
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+No such command: apt. Please use /bin/yum --help
+[ec2-user@ip-10-2-10-37 ~]$ sudo yum install mysql
+Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
+amzn2-core                                                                                                                                           | 3.7 kB  00:00:00     
+Resolving Dependencies
+--> Running transaction check
+---> Package mariadb.x86_64 1:5.5.68-1.amzn2 will be installed
+--> Finished Dependency Resolution
+
+Dependencies Resolved
+
+============================================================================================================================================================================
+ Package                               Arch                                 Version                                          Repository                                Size
+============================================================================================================================================================================
+Installing:
+ mariadb                               x86_64                               1:5.5.68-1.amzn2                                 amzn2-core                               8.8 M
+
+Transaction Summary
+============================================================================================================================================================================
+Install  1 Package
+
+Total download size: 8.8 M
+Installed size: 49 M
+Is this ok [y/d/N]: y
+Downloading packages:
+mariadb-5.5.68-1.amzn2.x86_64.rpm                                                                                                                    | 8.8 MB  00:00:00     
+Running transaction check
+Running transaction test
+Transaction test succeeded
+Running transaction
+  Installing : 1:mariadb-5.5.68-1.amzn2.x86_64                                                                                                                          1/1 
+  Verifying  : 1:mariadb-5.5.68-1.amzn2.x86_64                                                                                                                          1/1 
+
+Installed:
+  mariadb.x86_64 1:5.5.68-1.amzn2                                                                                                                                           
+
+Complete!
+[ec2-user@ip-10-2-10-37 ~]$ mysql --version
+mysql  Ver 15.1 Distrib 5.5.68-MariaDB, for Linux (x86_64) using readline 5.1
+[ec2-user@ip-10-2-10-37 ~]$ 
+[ec2-user@ip-10-2-10-37 ~]$ 
+[ec2-user@ip-10-2-10-37 ~]$ 
+[ec2-user@ip-10-2-10-37 ~]$ mysql -u admin -p -h database-master.cf1b7fudduub.us-east-1.rds.amazonaws.com
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MySQL connection id is 56
+Server version: 8.0.28 Source distribution
+
+Copyright (c) 2000, 2018, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MySQL [(none)]> use udacity;
+Database changed
+MySQL [udacity]> CREATE TABLE `american` (`id` decimal(10,0) DEFAULT NULL,`name` varchar(100) DEFAULT NULL);
+Query OK, 0 rows affected (0.08 sec)
+
+MySQL [udacity]> insert into american (id, name) values (1, 'name 1');
+Query OK, 1 row affected (0.01 sec)
+
+MySQL [udacity]> select * from american;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | name 1 |
++------+--------+
+1 row in set (0.00 sec)
+
+MySQL [udacity]> 

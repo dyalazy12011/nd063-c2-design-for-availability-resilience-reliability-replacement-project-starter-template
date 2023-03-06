@@ -1,0 +1,24 @@
+MySQL [udacity]> insert into american (id, name) values (2, 'name 2');
+ERROR 1290 (HY000): The MySQL server is running with the --read-only option so it cannot execute this statement
+MySQL [udacity]> 
+MySQL [udacity]> 
+MySQL [udacity]> 
+MySQL [udacity]> 
+MySQL [udacity]> insert into american (id, name) values (2, 'name 2');
+ERROR 2006 (HY000): MySQL server has gone away
+No connection. Trying to reconnect...
+Connection id:    12
+Current database: udacity
+
+Query OK, 1 row affected (0.02 sec)
+
+MySQL [udacity]> select * from american;
++------+--------+
+| id   | name   |
++------+--------+
+|    1 | name 1 |
+|    2 | name 2 |
++------+--------+
+2 rows in set (0.00 sec)
+
+MySQL [udacity]>
